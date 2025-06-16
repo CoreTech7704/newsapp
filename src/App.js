@@ -11,3 +11,5 @@ export default class App extends Component {
     )
   }
 }
+
+// news api key: a3651e4c91ba4e8891fe770bc0fe53c0
