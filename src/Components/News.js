@@ -7,14 +7,14 @@ export class News extends Component {
       <div className='container my-3'>
         <h2>SnapNews Top Headlines</h2>
         <div className="row">
-          <div className="col-md-3">
-            <NewsItem title="myTitle" description="mydesc"></NewsItem>
+          <div className="col-md-4">
+            <NewsItem mode={this.props.mode} title="myTitle" description="mydesc" />
           </div>
-          <div className="col-md-3">
-            <NewsItem title="myTitle" description="mydesc"></NewsItem>
+          <div className="col-md-4">
+            <NewsItem mode={this.props.mode} title="myTitle" description="mydesc" />
           </div>
-          <div className="col-md-3">
-            <NewsItem title="myTitle" description="mydesc"></NewsItem>
+          <div className="col-md-4">
+            <NewsItem mode={this.props.mode} title="myTitle" description="mydesc" />
           </div>
         </div>
         
