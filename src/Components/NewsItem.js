@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export class NewsItem extends Component {
 
   render() {
-    let { title, description, mode, imageurl } = this.props;
+    let { title, description, mode, imageurl, newsurl } = this.props;
     let cardClass = mode === 'dark' ? 'bg-dark text-white' : '';
 
     return (

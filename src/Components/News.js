@@ -43,13 +43,13 @@ export class News extends Component {
         <h2>SnapNews Top Headlines</h2>
         <div className="row">
           <div className="col-md-4">
-            <NewsItem mode={this.props.mode} title="myTitle" description="mydesc" imageurl="https://static.vecteezy.com/system/resources/thumbnails/006/299/370/original/world-breaking-news-digital-earth-hud-rotating-globe-rotating-free-video.jpg"/>
+            <NewsItem mode={this.props.mode} title="myTitle" description="mydesc" imageurl="https://static.vecteezy.com/system/resources/thumbnails/006/299/370/original/world-breaking-news-digital-earth-hud-rotating-globe-rotating-free-video.jpg" newsurl="TODO"/>
           </div>
           <div className="col-md-4">
-            <NewsItem mode={this.props.mode} title="myTitle" description="mydesc" imageurl="https://static.vecteezy.com/system/resources/thumbnails/006/299/370/original/world-breaking-news-digital-earth-hud-rotating-globe-rotating-free-video.jpg"/>
+            <NewsItem mode={this.props.mode} title="myTitle" description="mydesc" imageurl="https://static.vecteezy.com/system/resources/thumbnails/006/299/370/original/world-breaking-news-digital-earth-hud-rotating-globe-rotating-free-video.jpg" newsurl="TODO"/>
           </div>
           <div className="col-md-4">
-            <NewsItem mode={this.props.mode} title="myTitle" description="mydesc" imageurl="https://static.vecteezy.com/system/resources/thumbnails/006/299/370/original/world-breaking-news-digital-earth-hud-rotating-globe-rotating-free-video.jpg"/>
+            <NewsItem mode={this.props.mode} title="myTitle" description="mydesc" imageurl="https://static.vecteezy.com/system/resources/thumbnails/006/299/370/original/world-breaking-news-digital-earth-hud-rotating-globe-rotating-free-video.jpg" newsurl="TODO"/>
           </div>
         </div>
         
