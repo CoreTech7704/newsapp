@@ -29,7 +29,7 @@ export default class App extends Component {
     return (
       <div>
         <Navbar mode={this.state.mode} ToggleMode={this.toggleMode} />
-        <News mode={this.state.mode} />
+        <News mode={this.state.mode} pageSize={9} />
       </div>
     );
   }
