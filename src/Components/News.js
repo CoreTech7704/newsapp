@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NewsItem from './NewsItem';
+import Spinner from './Spinner';
 
 export class News extends Component {
   constructor() {
@@ -59,31 +60,24 @@ export class News extends Component {
     return (
       <div className='container my-3'>
         <h2 className='text-center'>SnapNews - Top Headlines</h2>
+        
+        <Spinner loading={this.state.loading} />
 
-        {this.state.loading && (
-          <div
-            className="d-flex justify-content-center align-items-center"
-            style={{ height: "60vh" }}
-          >
-            <div className="spinner-border text-primary" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
+        {!this.state.loading && (
+          <div className="row d-flex justify-content-between">
+            {this.state.articles.map((element) => (
+              <div className="col-md-4" key={element.url}>
+                <NewsItem
+                  title={element.title ? element.title.slice(0, 45) : ""}
+                  mode={this.props.mode}
+                  description={element.description ? element.description.slice(0, 95) : ""}
+                  imageurl={element.urlToImage}
+                  newsurl={element.url}
+                />
+              </div>
+            ))}
           </div>
         )}
-
-        <div className="row d-flex justify-content-between">
-          {!this.state.loading && this.state.articles.map((element) => (
-            <div className="col-md-4" key={element.url}>
-              <NewsItem
-                title={element.title ? element.title.slice(0, 45) : ""}
-                mode={this.props.mode}
-                description={element.description ? element.description.slice(0, 95) : ""}
-                imageurl={element.urlToImage}
-                newsurl={element.url}
-              />
-            </div>
-          ))}
-        </div>
 
         <div className="container d-flex justify-content-between">
           <button
