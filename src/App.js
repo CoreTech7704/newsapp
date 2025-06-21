@@ -4,9 +4,10 @@ import Navbar from './Components/Navbar';
 import News from './Components/News';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route
 } from "react-router-dom";
+
 
 export default class App extends Component {
   constructor(props) {
@@ -35,29 +36,15 @@ export default class App extends Component {
       <div>
         <Router>
         <Navbar mode={this.state.mode} ToggleMode={this.toggleMode} />
-        <Switch>
-          <Route path="/">
-            <News mode={this.state.mode} pageSize={8} country="us" category="general"/>
-          </Route>
-          <Route path="/business">
-            <News mode={this.state.mode} pageSize={8} country="us" category="business"/>
-          </Route>
-          <Route path="/entertainment">
-            <News mode={this.state.mode} pageSize={8} country="us" category="entertainment"/>
-          </Route>
-          <Route path="/health">
-            <News mode={this.state.mode} pageSize={8} country="us" category="health"/>
-          </Route>
-          <Route path="/science">
-            <News mode={this.state.mode} pageSize={8} country="us" category="science"/>
-          </Route>
-          <Route path="/sport">
-            <News mode={this.state.mode} pageSize={8} country="us" category="sport"/>
-          </Route>
-          <Route path="/technology">
-            <News mode={this.state.mode} pageSize={8} country="us" category="technology"/>
-          </Route>
-        </Switch>
+          <Routes>
+            <Route exact path="/" element={<News key="general" mode={this.state.mode} pageSize={8} country="us" category="general" />} />
+            <Route exact path="/business" element={<News key="business" mode={this.state.mode} pageSize={8} country="us" category="business" />} />
+            <Route exact path="/entertainment" element={<News key="entertainment" mode={this.state.mode} pageSize={8} country="us" category="entertainment" />} />
+            <Route exact path="/health" element={<News key="health" mode={this.state.mode} pageSize={8} country="us" category="health" />} />
+            <Route exact path="/science" element={<News key="science" mode={this.state.mode} pageSize={8} country="us" category="science" />} />
+            <Route exact path="/sports" element={<News key="sports" mode={this.state.mode} pageSize={8} country="us" category="sports" />} />
+            <Route exact path="/technology" element={<News key="technology" mode={this.state.mode} pageSize={8} country="us" category="technology" />} />
+          </Routes>
         </Router>
       </div>
     );
