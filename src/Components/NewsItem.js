@@ -8,7 +8,7 @@ export class NewsItem extends Component {
 
     return (
       <div className='my-3'>
-        <div className={`card ${cardClass}`} style={{ width: "18rem" }}>
+        <div className={`card ${cardClass}`}>
           <img src={!imageurl?"https://static.vecteezy.com/system/resources/previews/000/197/882/original/vector-news-headlines-background-with-earth-planet.jpg":imageurl} className="card-img-top" alt="news" />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
