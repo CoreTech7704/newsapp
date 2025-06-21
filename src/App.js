@@ -2,6 +2,11 @@ import './App.css';
 import React, { Component } from 'react';
 import Navbar from './Components/Navbar';
 import News from './Components/News';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 export default class App extends Component {
   constructor(props) {
@@ -28,8 +33,32 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <Router>
         <Navbar mode={this.state.mode} ToggleMode={this.toggleMode} />
-        <News mode={this.state.mode} pageSize={8} country="us" category="general"/>
+        <Switch>
+          <Route path="/">
+            <News mode={this.state.mode} pageSize={8} country="us" category="general"/>
+          </Route>
+          <Route path="/business">
+            <News mode={this.state.mode} pageSize={8} country="us" category="business"/>
+          </Route>
+          <Route path="/entertainment">
+            <News mode={this.state.mode} pageSize={8} country="us" category="entertainment"/>
+          </Route>
+          <Route path="/health">
+            <News mode={this.state.mode} pageSize={8} country="us" category="health"/>
+          </Route>
+          <Route path="/science">
+            <News mode={this.state.mode} pageSize={8} country="us" category="science"/>
+          </Route>
+          <Route path="/sport">
+            <News mode={this.state.mode} pageSize={8} country="us" category="sport"/>
+          </Route>
+          <Route path="/technology">
+            <News mode={this.state.mode} pageSize={8} country="us" category="technology"/>
+          </Route>
+        </Switch>
+        </Router>
       </div>
     );
   }
