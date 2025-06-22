@@ -16,14 +16,19 @@ export class News extends Component {
     category: PropTypes.string,
   }
 
-  constructor() {
-    super();
+  capitalizeFirstLetter = (string) => {
+    return String(string).charAt(0).toUpperCase() + String(string).slice(1);
+  } 
+
+  constructor(props) {
+    super(props);
     this.state = {
       articles: [],
       loading: true,
       page: 1,
       totalResults: 0
     };
+    document.title = `SnapNews - ${this.capitalizeFirstLetter(this.props.category)}`;
   }
 
   async componentDidMount() {
@@ -56,7 +61,7 @@ export class News extends Component {
   render() {
     return (
       <div className='container my-3'>
-        <h2 className='text-center'>SnapNews - Top Headlines</h2>
+        <h2 className='text-center'>SnapNews - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h2>
         
         <Spinner loading={this.state.loading} />
 
