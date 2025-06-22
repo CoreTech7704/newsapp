@@ -27,8 +27,12 @@ export class News extends Component {
   }
 
   async componentDidMount() {
+    this.updateNews();
+  }
+
+  async updateNews() {
     this.setState({ loading: true });
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a3651e4c91ba4e8891fe770bc0fe53c0&page=1&pageSize=${this.props.pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a3651e4c91ba4e8891fe770bc0fe53c0&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     const data = await fetch(url);
     const parsedData = await data.json();
     this.setState({
@@ -39,35 +43,15 @@ export class News extends Component {
   }
 
   handlePreviousClick = async () => {
-    this.setState({ loading: true });
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a3651e4c91ba4e8891fe770bc0fe53c0&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
-    const data = await fetch(url);
-    const parsedData = await data.json();
-    this.setState({
-      page: this.state.page - 1,
-      articles: parsedData.articles,
-      loading: false
-    });
-  }
+    await this.setState((prevState) => ({ page: prevState.page - 1 }));
+    this.updateNews();
+  };
 
   handleNextClick = async () => {
-    const maxPages = Math.ceil(this.state.totalResults / this.props.pageSize);
-    if (this.state.page >= maxPages) {
-      this.setState({ loading: false });
-      return;
-    }
+    await this.setState((prevState) => ({ page: prevState.page + 1 }));
+    this.updateNews();
+  };
 
-    this.setState({ loading: true });
-    const nextPage = this.state.page + 1;
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a3651e4c91ba4e8891fe770bc0fe53c0&page=${nextPage}&pageSize=${this.props.pageSize}`;
-    const data = await fetch(url);
-    const parsedData = await data.json();
-    this.setState({
-      page: nextPage,
-      articles: parsedData.articles,
-      loading: false
-    });
-  }
 
   render() {
     return (
