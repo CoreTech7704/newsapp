@@ -61,7 +61,7 @@ export class News extends Component {
   render() {
     return (
       <div className='container my-3'>
-        <h2 className='text-center'>SnapNews - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h2>
+        <h2 className='text-center'>SnapNews - Top best {this.capitalizeFirstLetter(this.props.category)} Headlines</h2>
         
         <Spinner loading={this.state.loading} />
 
