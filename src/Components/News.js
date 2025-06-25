@@ -100,7 +100,7 @@ export class News extends Component {
           </div>
           </div>
         </InfiniteScroll>
-        {this.state.loading && (
+        {this.state.loading && ( // Canseling spinner when nothing to load
           <Spinner loading={true} />
         )}
       </div>
