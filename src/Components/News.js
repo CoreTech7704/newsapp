@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NewsItem from './NewsItem';
 import Spinner from './Spinner';
 import PropTypes from 'prop-types';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 export class News extends Component {
   static defaultProps = {
@@ -17,56 +18,71 @@ export class News extends Component {
   }
 
   capitalizeFirstLetter = (string) => {
-    return String(string).charAt(0).toUpperCase() + String(string).slice(1);
-  } 
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
   constructor(props) {
     super(props);
     this.state = {
       articles: [],
-      loading: true,
+      loading: false,
       page: 1,
-      totalResults: 0
+      totalResults: 0,
     };
     document.title = `SnapNews - ${this.capitalizeFirstLetter(this.props.category)}`;
   }
 
   async componentDidMount() {
-    this.updateNews();
+    this.fetchNews();
   }
 
-  async updateNews() {
+  fetchNews = async () => {
     this.setState({ loading: true });
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a3651e4c91ba4e8891fe770bc0fe53c0&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     const data = await fetch(url);
     const parsedData = await data.json();
     this.setState({
       articles: parsedData.articles,
+      totalResults: parsedData.totalResults,
       loading: false,
-      totalResults: parsedData.totalResults
     });
-  }
-
-  handlePreviousClick = async () => {
-    await this.setState((prevState) => ({ page: prevState.page - 1 }));
-    this.updateNews();
   };
 
-  handleNextClick = async () => {
-    await this.setState((prevState) => ({ page: prevState.page + 1 }));
-    this.updateNews();
+  fetchMoreData = async () => {
+    if (this.state.articles.length >= this.state.totalResults) {
+      this.setState({ loading: false }); // explicitly stop spinner at end
+      return;
+    }
+
+    this.setState({ loading: true }); // start loading before fetch
+
+    const nextPage = this.state.page + 1;
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a3651e4c91ba4e8891fe770bc0fe53c0&page=${nextPage}&pageSize=${this.props.pageSize}`;
+    const data = await fetch(url);
+    const parsedData = await data.json();
+
+    this.setState((prevState) => ({
+      articles: prevState.articles.concat(parsedData.articles),
+      page: nextPage,
+      loading: false, // stop spinner after fetch
+    }));
   };
+
 
 
   render() {
     return (
-      <div className='container my-3'>
-        <h2 className='text-center'>SnapNews - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h2>
-        
-        <Spinner loading={this.state.loading} />
+      <div className="container my-3">
+        <h2 className="text-center">SnapNews - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h2>
 
-        {!this.state.loading && (
-          <div className="row d-flex justify-content-between">
+        <InfiniteScroll
+          dataLength={this.state.articles.length}
+          next={this.fetchMoreData}
+          hasMore={this.state.articles.length < this.state.totalResults}
+          loader={null}
+        >
+          <div className="container">
+            <div className="row">
             {this.state.articles.map((element) => (
               <div className="col-md-4" key={element.url}>
                 <NewsItem
@@ -82,26 +98,11 @@ export class News extends Component {
               </div>
             ))}
           </div>
+          </div>
+        </InfiniteScroll>
+        {this.state.loading && (
+          <Spinner loading={true} />
         )}
-
-        <div className="container d-flex justify-content-between">
-          <button
-            disabled={this.state.page <= 1}
-            type="button"
-            className="btn btn-primary mx-1"
-            onClick={this.handlePreviousClick}
-          >
-            &larr; Previous
-          </button>
-          <button
-            disabled={this.state.page >= Math.ceil(this.state.totalResults / this.props.pageSize)}
-            type="button"
-            className="btn btn-primary mx-1"
-            onClick={this.handleNextClick}
-          >
-            Next &rarr;
-          </button>
-        </div>
       </div>
     );
   }

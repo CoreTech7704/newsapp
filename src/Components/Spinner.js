@@ -5,7 +5,7 @@ export class Spinner extends Component {
     return this.props.loading ? (
       <div
         className="d-flex justify-content-center align-items-center"
-        style={{ height: "60vh" }}
+        style={{ height: "10vh" }}
       >
         <div className="spinner-border text-primary" role="status">
           <span className="visually-hidden">Loading...</span>
