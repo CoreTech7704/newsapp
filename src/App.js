@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Footer from './Components/Footer';
 import LoadingBar from "react-top-loading-bar";
+import AboutUs from './Components/Aboutus';
 
 export default class App extends Component {
   
@@ -52,6 +53,7 @@ export default class App extends Component {
             <Route exact path="/science" element={<News setProgress={this.setProgress} apikey={this.apikey} key="science" mode={this.state.mode} country="us" category="science" />} />
             <Route exact path="/sports" element={<News setProgress={this.setProgress} apikey={this.apikey} key="sports" mode={this.state.mode} country="us" category="sports" />} />
             <Route exact path="/technology" element={<News setProgress={this.setProgress} apikey={this.apikey} key="technology" mode={this.state.mode} country="us" category="technology" />} />
+            <Route exact path="/about" element={<AboutUs mode={this.state.mode} />} />
           </Routes>
           <Footer mode={this.state.mode} />
         </Router>
