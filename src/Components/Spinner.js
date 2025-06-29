@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export class Spinner extends Component {
-  render() {
-    return this.props.loading ? (
-      <div
-        className="d-flex justify-content-center align-items-center"
-        style={{ height: "10vh" }}
-      >
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
+const Spinner = ({ loading }) => {
+  return loading ? (
+    <div
+      className="d-flex justify-content-center align-items-center"
+      style={{ height: '10vh' }}
+    >
+      <div className="spinner-border text-primary" role="status">
+        <span className="visually-hidden">Loading...</span>
       </div>
-    ) : null;
-  }
-}
+    </div>
+  ) : null;
+};
 
 export default Spinner;
