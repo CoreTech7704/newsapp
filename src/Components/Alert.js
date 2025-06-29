@@ -1,24 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Alert extends Component {
-  capitalize = (word) => {
+const Alert = ({ alert }) => {
+  const capitalize = (word) => {
     if (!word) return '';
     return word.charAt(0).toUpperCase() + word.slice(1);
   };
 
-  render() {
-    const { alert } = this.props;
-
-    return (
-      alert && (
-        <div className={`alert alert-${alert.type} alert-dismissible fade show`} role="alert">
-          <strong>{this.capitalize(alert.type)}</strong>: {alert.msg}
-        </div>
-      )
-    );
-  }
-}
+  return (
+    alert && (
+      <div className={`alert alert-${alert.type} alert-dismissible fade show`} role="alert">
+        <strong>{capitalize(alert.type)}</strong>: {alert.msg}
+      </div>
+    )
+  );
+};
 
 Alert.propTypes = {
   alert: PropTypes.shape({

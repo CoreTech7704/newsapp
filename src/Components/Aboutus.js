@@ -10,15 +10,18 @@ const AboutUs = ({ mode }) => {
 
   return (
     <div style={myStyle} className="container">
-      <h2 className="text-center mb-4">About SnapNews</h2>
+      <h2 className="text-center mb-4 display-6">About SnapNews</h2>
       <p>
         <strong>SnapNews</strong> is your go-to platform for real-time news updates across the globe. We aim to deliver the latest headlines from various categories like technology, sports, health, science, business, and entertainment — all in one place.
       </p>
       <p>
-        Our mission is to keep you informed with credible and concise news, powered by <a href="https://newsapi.org" target="_blank" rel="noreferrer">NewsAPI.org</a>. With our user-friendly interface, infinite scroll, and dark/light mode toggle, we strive to make your news reading experience smooth and enjoyable.
+        Our mission is to keep you informed with credible and concise news, powered by <a href="https://newsapi.org" target="_blank" style={{ color: mode === 'dark' ? '#61dafb' : '#0d6efd' }} rel="noreferrer">NewsAPI.org</a>. With our user-friendly interface, infinite scroll, and dark/light mode toggle, we strive to make your news reading experience smooth and enjoyable.
       </p>
       <p>
         This project was built with ❤️ using <strong>React.js</strong>, and it's continuously improving with new features and updates.
+      </p>
+      <p className="mt-4 text-center">
+        Built by <a href="https://github.com/your-github" target="_blank" rel="noreferrer">Sarvam Patel</a> as a portfolio project.
       </p>
       <p className="text-muted">Last updated: June 2025</p>
     </div>
