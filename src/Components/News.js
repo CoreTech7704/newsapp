@@ -65,7 +65,7 @@ const News = ({ country, pageSize, category, setProgress, apikey, mode }) => {
               description={
                 element.description ? element.description.slice(0, 95) : ''
               }
-              imageurl={element.image} // ✅ Correct for GNews
+              imageurl={element.image} 
               newsurl={element.url}
               author={element.source?.name || 'Unknown'}
               date={element.publishedAt}
