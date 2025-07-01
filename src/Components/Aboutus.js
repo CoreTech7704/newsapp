@@ -11,19 +11,28 @@ const AboutUs = ({ mode }) => {
   return (
     <div style={myStyle} className="container">
       <h2 className="text-center mb-4 display-6">About SnapNews</h2>
+
       <p>
-        <strong>SnapNews</strong> is your go-to platform for real-time news updates across the globe. We aim to deliver the latest headlines from various categories like technology, sports, health, science, business, and entertainment — all in one place.
+        <strong>SnapNews</strong> is a modern React-based news aggregator designed to bring you the latest headlines across various categories such as technology, business, health, science, sports, and entertainment.
       </p>
+
       <p>
-        Our mission is to keep you informed with credible and concise news, powered by <a href="https://newsapi.org" target="_blank" style={{ color: mode === 'dark' ? '#61dafb' : '#0d6efd' }} rel="noreferrer">NewsAPI.org</a>. With our user-friendly interface, infinite scroll, and dark/light mode toggle, we strive to make your news reading experience smooth and enjoyable.
+        Built for speed and usability, SnapNews features dynamic routing, dark/light theme switching, a smooth user interface, and responsive layout — all tailored to enhance your news-reading experience.
       </p>
+
       <p>
-        This project was built with ❤️ using <strong>React.js</strong>, and it's continuously improving with new features and updates.
+        This app uses the <a href="https://gnews.io" target="_blank" rel="noreferrer" style={{ color: mode === 'dark' ? '#61dafb' : '#0d6efd' }}>GNews API</a> for fetching top and trending headlines worldwide. GNews enables access to real-time content with CORS support, making it perfect for modern front-end deployment platforms like Netlify.
       </p>
+
+      <p>
+        SnapNews was built using <strong>React.js</strong> and <strong>Bootstrap</strong>, and is deployed on <strong>Netlify</strong>. It serves as a featured project in the developer's portfolio, demonstrating API integration, component-based architecture, and clean UI design.
+      </p>
+
       <p className="mt-4 text-center">
-        Built by <a href="https://github.com/your-github" target="_blank" rel="noreferrer">Sarvam Patel</a> as a portfolio project.
+        Made with ❤️ by <a href="https://github.com/CoreTech7704" target="_blank" rel="noreferrer">Sarvam Patel</a>
       </p>
-      <p className="text-muted">Last updated: June 2025</p>
+
+      <p className="text-muted text-center">Last updated: June 2025</p>
     </div>
   );
 };
