@@ -46,7 +46,7 @@ const News = ({ country, pageSize, category, setProgress, apikey, mode }) => {
 
   return (
     <div className="container my-3">
-      <h2 className="text-center">
+      <h2 className="text-center" style={{ marginTop: '70px'}}>
         SnapNews - Top {capitalizeFirstLetter(category)} Headlines
       </h2>
 
