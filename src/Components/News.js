@@ -69,7 +69,7 @@ const News = ({ country, pageSize, category, setProgress, apikey, mode }) => {
               newsurl={element.url}
               author={element.source?.name || 'Unknown'}
               date={element.publishedAt}
-              source={element.source?.name || 'Unknown'}
+              source={(element.source?.name || 'Unknown').slice(0, 24)}
             />
           </div>
         ))}
