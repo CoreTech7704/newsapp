@@ -14,7 +14,7 @@ const News = ({ country, pageSize, category, setProgress, apikey, mode }) => {
     document.title = `SnapNews - ${capitalizeFirstLetter(category)}`;
     fetchNews();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [category]);
+  }, [category, country]);
 
   const fetchNews = async () => {
     setProgress(10);

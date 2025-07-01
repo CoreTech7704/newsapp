@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ mode, ToggleMode }) => {
+const Navbar = ({ mode, ToggleMode, changeCountry }) => {
   return (
     <nav className={`navbar fixed-top navbar-expand-lg navbar-${mode} bg-${mode}`}>
       <div className="container-fluid">
@@ -48,6 +48,27 @@ const Navbar = ({ mode, ToggleMode }) => {
               </ul>
             </li>
 
+            {/* Dropdown for countries */}
+           <li className="nav-item dropdown">
+            <Link
+              className="nav-link dropdown-toggle"
+              to="#"
+              id="countryDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Country
+            </Link>
+            <ul className={`dropdown-menu dropdown-menu-${mode}`} aria-labelledby="countryDropdown">
+              <li><Link className="dropdown-item" to="#" onClick={() => changeCountry('us')}>USA</Link></li>
+              <li><Link className="dropdown-item" to="#" onClick={() => changeCountry('in')}>India</Link></li>
+              <li><Link className="dropdown-item" to="#" onClick={() => changeCountry('gb')}>UK</Link></li>
+              <li><Link className="dropdown-item" to="#" onClick={() => changeCountry('ca')}>Canada</Link></li>
+              <li><Link className="dropdown-item" to="#" onClick={() => changeCountry('au')}>Australia</Link></li>
+            </ul>
+          </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/about">About Us</Link>
             </li>
@@ -75,6 +96,7 @@ const Navbar = ({ mode, ToggleMode }) => {
 Navbar.propTypes = {
   mode: PropTypes.string.isRequired,
   ToggleMode: PropTypes.func.isRequired,
+  changeCountry: PropTypes.func.isRequired,
 };
 
 export default Navbar;
