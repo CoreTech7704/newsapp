@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const AboutUs = ({ mode }) => {
   const myStyle = {
@@ -10,6 +11,11 @@ const AboutUs = ({ mode }) => {
 
   return (
     <div style={myStyle} className="container">
+      <Helmet>
+        <title>About SnapNews</title>
+        <meta name="description" content="Learn more about SnapNews, your real-time news source built with React and GNews API." />
+      </Helmet>
+
       <h2 className="text-center mb-3 display-4" style={{ marginTop: '50px'}}>About SnapNews</h2>
 
       <p>

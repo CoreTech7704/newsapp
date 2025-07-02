@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NewsItem from './NewsItem';
 import Spinner from './Spinner';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 
 const News = ({ country, pageSize, category, setProgress, apikey, mode }) => {
   const [articles, setArticles] = useState([]);
@@ -46,6 +47,10 @@ const News = ({ country, pageSize, category, setProgress, apikey, mode }) => {
 
   return (
     <div className="container my-3">
+      <Helmet>
+        <title>SnapNews - {capitalizeFirstLetter(category)}</title>
+        <meta name="description" content={`Top headlines in ${category} from SnapNews.`} />
+      </Helmet>
       <h2 className="text-center" style={{ marginTop: '70px'}}>
         SnapNews - Top {capitalizeFirstLetter(category)} Headlines
       </h2>
