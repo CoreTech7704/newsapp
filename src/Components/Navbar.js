@@ -6,7 +6,7 @@ const Navbar = ({ mode, ToggleMode, changeCountry }) => {
   return (
     <nav className={`navbar fixed-top navbar-expand-lg navbar-${mode} bg-${mode}`}>
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">SnapNews</Link>
+        <Link className="navbar-brand text-primary fw-bold fs-4" to="/">SnapNews</Link>
 
         <button
           className="navbar-toggler"

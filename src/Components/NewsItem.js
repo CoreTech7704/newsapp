@@ -23,7 +23,7 @@ const NewsItem = ({ title, description, mode, imageurl, newsurl, author, date, s
           <h5 className="card-title">{title ? title.slice(0, 60) : 'No Title'}</h5>
           <p className="card-text">{description ? description.slice(0, 100) : 'No Description'}...</p>
           <p className="card-text">
-            <small className="text-body-secondary">
+            <small className={mode === 'dark' ? 'text-light' : 'text-body-secondary'}>
               By {displayAuthor.slice(0, 20)} on {new Date(date).toLocaleDateString()}.
             </small>
           </p>

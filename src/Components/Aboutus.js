@@ -10,7 +10,7 @@ const AboutUs = ({ mode }) => {
 
   return (
     <div style={myStyle} className="container">
-      <h2 className="text-center mb-4 display-6">About SnapNews</h2>
+      <h2 className="text-center mb-3 display-4" style={{ marginTop: '50px'}}>About SnapNews</h2>
 
       <p>
         <strong>SnapNews</strong> is a modern React-based news aggregator designed to bring you the latest headlines across various categories such as technology, business, health, science, sports, and entertainment.
@@ -29,10 +29,10 @@ const AboutUs = ({ mode }) => {
       </p>
 
       <p className="mt-4 text-center">
-        Made with ❤️ by <a href="https://github.com/CoreTech7704" target="_blank" rel="noreferrer">Sarvam Patel</a>
+        Made by <a href="https://github.com/CoreTech7704" target="_blank" rel="noreferrer">Sarvam Patel</a>
       </p>
 
-      <p className="text-muted text-center">Last updated: June 2025</p>
+      <p className="text-muted text-center">Last updated: July 2025</p>
     </div>
   );
 };
