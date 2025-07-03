@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Spinner = ({ loading }) => {
+const Spinner = ({ loading = true }) => {
   return loading ? (
     <div
       className="d-flex justify-content-center align-items-center"
       style={{ height: '10vh' }}
     >
-      <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Loading...</span>
+      <div className="spinner-border text-primary" role="status">
+        <span className="visually-hidden">Loading...</span>
       </div>
     </div>
   ) : null;

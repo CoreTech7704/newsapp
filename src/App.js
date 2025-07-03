@@ -37,7 +37,7 @@ const App = () => {
       <Router>
         <LoadingBar height={3} color="#007bff" progress={progress} />
         <Navbar mode={mode} ToggleMode={toggleMode} changeCountry={changeCountry} />
-        <Suspense fallback={<div className="text-center my-5"><Spinner></Spinner></div>}>
+        <Suspense fallback={<Spinner />}>
           <Routes>
             <Route path="/" element={<News setProgress={setProgress} apikey={apikey} key="general" mode={mode} country={country} category="general" />} />
             <Route path="/business" element={<News setProgress={setProgress} apikey={apikey} key="business" mode={mode} country={country} category="business" />} />
