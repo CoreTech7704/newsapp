@@ -9,7 +9,7 @@ const NewsItem = ({ title, description, mode, imageurl, newsurl, author, date, s
   return (
     <div className='my-3'>
       <div className={`card ${cardClass}`}>
-        <span className="position-absolute top-0 end-0 badge rounded-pill bg-danger m-2" style={{ fontSize: '0.75rem' }}>
+        <span className="position-absolute top-0 end-0 badge rounded-pill bg-danger m-2" style={{ fontSize: '0.75rem', zIndex: 2 }}>
           {source || 'Unknown'}
         </span>
         <LazyLoadImage
