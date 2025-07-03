@@ -4,7 +4,7 @@ import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import LoadingBar from 'react-top-loading-bar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import Spinner from './Components/Spinner';
 // Lazy-loaded components
 const News = lazy(() => import('./Components/News'));
 const AboutUs = lazy(() => import('./Components/Aboutus'));
@@ -14,7 +14,7 @@ const App = () => {
 
   const [mode, setMode] = useState('light');
   const [progress, setProgress] = useState(0);
-  const [country, setCountry] = useState('us');
+  const [country, setCountry] = useState('in');
 
   const toggleMode = () => {
     if (mode === 'light') {
@@ -37,8 +37,7 @@ const App = () => {
       <Router>
         <LoadingBar height={3} color="#007bff" progress={progress} />
         <Navbar mode={mode} ToggleMode={toggleMode} changeCountry={changeCountry} />
-
-        <Suspense fallback={<div className="text-center my-5">Loading...</div>}>
+        <Suspense fallback={<div className="text-center my-5"><Spinner></Spinner></div>}>
           <Routes>
             <Route path="/" element={<News setProgress={setProgress} apikey={apikey} key="general" mode={mode} country={country} category="general" />} />
             <Route path="/business" element={<News setProgress={setProgress} apikey={apikey} key="business" mode={mode} country={country} category="business" />} />
