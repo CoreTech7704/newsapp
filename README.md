@@ -86,7 +86,7 @@ newsapp/
 
 ✅ Accessibility: 90%+
 
-⚠️ Performance: ~65–70% (pending Bootstrap optimization)
+⚠️ Performance: ~65–70% (Need Bootstrap optimization)
 
 A future TailwindCSS-powered version is in progress with better Lighthouse scores and reduced bundle size which will improve performace.
 
