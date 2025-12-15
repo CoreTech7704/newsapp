@@ -2,6 +2,12 @@
 
 SnapNews is a sleek, responsive news application built using **React.js**, styled with **Bootstrap 5**, and powered by the **GNews API**. It delivers real-time top headlines categorized by topics and regions. Designed as a professional-grade project for showcase, it features lazy image loading, dark/light themes, custom alerts, and a smooth user experience.
 
+> ⚠️ This project is an earlier version of **Swift News** built using React and Bootstrap.
+>  
+> The latest and actively maintained version is available here:  
+> 👉 https://github.com/CoreTech7704/swiftnews
+
+
 ---
 
 ## ✨ Features
