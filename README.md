@@ -48,15 +48,19 @@ REACT_APP_NEWS_API=your_gnews_api_key_here
 
 ## 🚀 Getting Started
 
-```
 # 1. Clone the repo
+```
 git clone https://github.com/your-username/newsapp.git
 cd newsapp
+```
 
 # 2. Install dependencies
+```
 npm install
+```
 
 # 3. Start development server
+```
 npm start
 ```
 
@@ -67,7 +71,6 @@ npm start
 ```
 newsapp/
 ├── public/
-│   └── default.webp         # Optimized fallback image
 ├── src/
 │   ├── Components/
 │   │   ├── News.js
